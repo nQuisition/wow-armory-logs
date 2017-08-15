@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+
+  "name": "WoWArmoryLogs",
+  "version": "0.1",
+  "options_ui": {
+    "page": "pages/options.htm",
+    "chrome_style": true
+  },
+
+  "permissions": [
+      "storage",
+      "https://www.warcraftlogs.com:443/"
+  ],
+
+  "background": {
+    "scripts": [ "vendor/jquery-3.1.1.min.js", "src/background.js" ]
+   },
+
+  "content_scripts": [
+  {
+      "matches": [
+          "https://worldofwarcraft.com/*/character/*"
+      ],
+      "js": ["vendor/jquery-3.1.1.min.js", "src/main.js"],
+      "run_at": "document_end"
+  }]
+}
